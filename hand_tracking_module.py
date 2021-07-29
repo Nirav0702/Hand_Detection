@@ -1,6 +1,5 @@
 import cv2
 import mediapipe as mp
-import time
 
 class handDetector():
     def __init__(self,mode=False,handsno=2,detectionCon=0.5,trackingCon=0.5):
@@ -32,26 +31,3 @@ class handDetector():
                 if draw:
                     cv2.circle(img, (cx, cy), 10, (255, 255, 0), cv2.FILLED)
         return lmlist
-'''
-def main():
-    cap = cv2.VideoCapture(0)
-    ctime = 0
-    stime = 0
-    detector=handDetector()
-    while True:
-        success, img = cap.read()
-        img = detector.findhands(img)
-        lmlist = detector.findposition(img)
-        #if len(lmlist) != 0:
-            #print(lmlist[4])  # to print the location of point 4
-        ctime = time.time()
-        fps = 1 / (ctime - stime)
-        stime = ctime
-
-        cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 255, 0), 3)
-
-        cv2.imshow("Image", img)
-        cv2.waitKey(1) '''
-
-'''if __name__ == "__main__":
-    main()'''
